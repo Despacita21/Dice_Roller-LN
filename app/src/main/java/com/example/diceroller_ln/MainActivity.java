@@ -54,17 +54,29 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private void playSound()
     {
-        MediaPlayer roll_sound = MediaPlayer.create(this, R.raw.bubbles);
-        roll_sound.start();
-        rollDice();
+        rollDice(1);
     }
 
-    private void rollDice()
+    private void rollDice( int x )
     {
+        MediaPlayer roll_sound = MediaPlayer.create(this, R.raw.bubbles);
+        switch (x)
+        {
+            case 1:
+               roll_sound = MediaPlayer.create(this, R.raw.bubbles);
+                break;
+
+            case 2:
+                roll_sound = MediaPlayer.create(this, R.raw.lots_of_dice);
+                break;
+
+        }
+
+
         CritText.setVisibility(View.INVISIBLE);
        int randomNumber = rng.nextInt(20 ) + 1;
 
-
+    roll_sound.start();
 
        switch ( randomNumber )
        {
@@ -143,9 +155,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent sensorEvent)
     {
-        MediaPlayer roll_sound4 = MediaPlayer.create(this, R.raw.lots_of_dice);
-        roll_sound4.start();
-        rollDice();
+        rollDice(2);
     }
 
     @Override
