@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Dice Roller - LN</string>
+
+    <string name="Bad_Roll"> Tarter Sauce!</string>
+    <string name="Good_Roll"> Are you feeling it now Mr. Krabs?</string>
 </resources>
